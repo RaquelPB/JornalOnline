@@ -1,11 +1,117 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Newspaper - Issue, June</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <!-- Page 1 -->
+    <div class="page" id="page1">
+        <header class="page-header">
+            <div class="header-left">ISSUE, JUNE</div>
+            <div class="header-right">NEWS</div>
+        </header>
+
+        <div class="title-section">
+            <h1 class="main-title">NEWSPAPER</h1>
+        </div>
+
+        <div class="content-grid">
+            <article class="article article-main">
+                <h2>ET HARUM QUIDEM RERUM FACILIS EST ET EXPEDITA DISTINCTIO.</h2>
+                <p class="date">10 June 2023</p>
+                <div class="article-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non provident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </article>
+
+            <div class="image-placeholder image-large"></div>
+        </div>
+
+        <div class="content-grid-2">
+            <div class="image-placeholder image-medium"></div>
+            
+            <article class="article article-secondary">
+                <h2>ET HARUM QUIDEM RERUM FACILIS EST.</h2>
+                <p class="date">10 June 2023</p>
+                <div class="article-content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+            </article>
+        </div>
+
+        <div class="bottom-section">
+            <article class="bottom-article">
+                <h3>YOUR TITLE HERE</h3>
+                <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+            </article>
+
+            <article class="bottom-article">
+                <h3>YOUR TITLE HERE</h3>
+                <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+            </article>
+
+            <article class="bottom-article">
+                <h3>YOUR TITLE HERE</h3>
+                <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+            </article>
+        </div>
+
+        <div class="navigation">
+            <button class="nav-btn" onclick="showPage(2)">→</button>
+        </div>
+    </div>
+
+    <!-- Page 2 -->
+    <div class="page" id="page2" style="display: none;">
+        <header class="page-header">
+            <div class="header-left">ISSUE, JUNE</div>
+            <div class="header-right">NEWS</div>
+        </header>
+
+        <article class="article article-featured">
+            <h2>ET HARUM QUIDEM RERUM FACILIS EST ET EXPEDITA DISTINCTIO.</h2>
+            <p class="date">10 June 2023</p>
+            <div class="article-layout">
+                <div class="article-columns">
+                    <div class="column">
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaerati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+                    </div>
+                    <div class="column">
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaerati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+                    </div>
+                </div>
+                <div class="image-placeholder image-side"></div>
+            </div>
+        </article>
+
+        <div class="content-grid-3">
+            <div class="image-placeholder image-large-bottom"></div>
+            
+            <div class="article-right">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+            </div>
+        </div>
+
+        <article class="article article-bottom-featured">
+            <h2>ET HARUM QUIDEM RERUM FACILIS EST ET EXPEDITA DISTINCTIO.</h2>
+            <p class="date">10 June 2023</p>
+        </article>
+
+        <div class="navigation">
+            <button class="nav-btn" onclick="showPage(1)">←</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
+
