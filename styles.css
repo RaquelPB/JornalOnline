@@ -212,6 +212,39 @@ article p {
     color: #666;
 }
 
+/* Estilos para o dark mode */
+.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.dark-mode .page {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .page-header,
+.dark-mode .article h2,
+.dark-mode .article h3 {
+    color: #ffffff;
+}
+
+.dark-mode-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.dark-mode-btn:hover {
+    background-color: #444;
+}
+
 /* Responsividade */
 @media (max-width: 1024px) {
     .page {

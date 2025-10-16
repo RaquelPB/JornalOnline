@@ -45,5 +45,25 @@ document.addEventListener('keydown', function(event) {
 document.addEventListener('DOMContentLoaded', function() {
     // Garante que a primeira página esteja visível
     showPage(1);
+
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    // Verifica se já existe uma preferência salva
+    const darkMode = localStorage.getItem('darkMode');
+    if (darkMode === 'enabled') {
+        body.classList.add('dark-mode');
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        
+        // Salva a preferência do usuário
+        if (body.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            localStorage.setItem('darkMode', null);
+        }
+    });
 });
 
