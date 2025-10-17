@@ -780,6 +780,16 @@ article p {
     }
 }
 
+/* Mobile: mover o botão de darkmode para o canto inferior direito */
+@media (max-width: 600px), (hover: none) and (pointer: coarse) {
+  .dark-mode-btn {
+    top: auto !important;              /* ignora posicionamentos anteriores */
+    bottom: max(var(--edge-gap), env(safe-area-inset-bottom, 0px) + 10px);
+    right: max(var(--edge-gap), env(safe-area-inset-right, 0px) + 10px);
+    left: auto;
+  }
+}
+
 /* Ícone sempre central, sem animação própria */
 .nav-btn i {
     position: relative;
