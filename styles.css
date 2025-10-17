@@ -660,6 +660,10 @@ article p {
         padding: 40px 50px;
     }
 
+    .dark-mode-btn {
+        top: 30px; /* desce um pouco */
+    }
+
     .main-title {
         font-size: 80px;
     }
@@ -697,6 +701,10 @@ article p {
         padding: 30px 30px;
     }
 
+    .dark-mode-btn {
+        top: 40px; /* desce mais */
+    }
+
     .main-title {
         font-size: 60px;
         letter-spacing: 4px;
@@ -726,6 +734,7 @@ article p {
     }
 
     .navigation {
+        bottom: 20px;
         right: 20px;
         gap: 12px;
     }
@@ -740,6 +749,14 @@ article p {
 @media (max-width: 480px) {
     .page {
         padding: 20px 20px;
+    }
+
+    .dark-mode-btn {
+        right: 15px;
+        gap: 10px;
+        width: 45px;
+        height: 45px;
+        top: 90px; /* desce ainda mais no mobile*/
     }
 
     .main-title {
