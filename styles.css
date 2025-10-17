@@ -43,10 +43,18 @@ body {
 
 /* Seção do título principal */
 .title-section {
-    text-align: center;
+    display: flex;
+    align-items: center;       /* Alinha verticalmente */
+    gap: 20px;                 /* Espaçamento entre imagem e texto */
+    justify-content: center;   /* Centraliza no centro da página */
     margin-bottom: 40px;
     padding-bottom: 30px;
     border-bottom: 2px solid #333;
+}
+
+.title-section img {
+    height:95px;
+    width: auto;
 }
 
 .main-title {
@@ -110,6 +118,15 @@ article p {
 .image-large {
     height: 400px;
 }
+
+
+.image-placeholder.image-large {
+    background-image: url("jovemProgramador.jpg"); /* caminho da imagem */
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+}
+
 
 .content-grid-2 {
     display: grid;
