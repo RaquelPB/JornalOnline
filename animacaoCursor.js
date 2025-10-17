@@ -1,6 +1,4 @@
-
-
-    // Animação de digitação para o H1 com id "cursor-animation"
+// Animação de digitação para o H1 com id "cursor-animation"
     (function initTyping() {
         const heading = document.getElementById('cursor-animation');
         if (!heading) return;
@@ -37,11 +35,15 @@
                 i++;
                 setTimeout(typeNext, speed);
             } else {
-                // concluído: mantém cursor piscando (já tem animação)
+                // após concluir: deixa piscar por 5s e remove o cursor
+                const blinkDurationMs = 2000;
+                setTimeout(() => {
+                    if (cursor && cursor.parentNode) cursor.remove();
+                }, blinkDurationMs);
             }
         }
 
         // pequeno atraso antes de iniciar a digitação
-        setTimeout(typeNext, 300);
+        setTimeout(typeNext, 500);
     })()
 
