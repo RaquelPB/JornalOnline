@@ -126,6 +126,35 @@ body {
 }
 
 /* Seção do título principal */
+/* Título + logo proporcionais e responsivos */
+.title-section {
+    /* Tamanho único controlando logo e H1 juntos */
+    --title-size: clamp(28px, 9vw, 110px);
+    --logo-scale: 0.9; /* proporção da logo em relação ao H1 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(8px, 2vw, 18px);
+    flex-wrap: wrap; /* pode quebrar no mobile */
+    text-align: center;
+}
+
+.title-section .title-logo {
+    height: calc(var(--title-size) * var(--logo-scale));
+    width: auto;
+    flex: 0 0 auto;
+}
+
+.main-title {
+    font-size: var(--title-size);
+    font-weight: 700;
+    letter-spacing: clamp(0.5px, 0.7vw, 8px);
+    line-height: 0.95;
+    text-transform: uppercase;
+    margin: 0;
+    word-break: break-word;
+}
+
 .title-section {
     display: flex;
     align-items: center;
@@ -141,15 +170,17 @@ body {
     width: auto;
 }
 
+/* Ajustes finos para telas muito pequenas */
+@media (max-width: 420px) {
+    .title-section {
+        --title-size: clamp(24px, 10vw, 60px);
+        --logo-scale: 0.85; /* deixa a logo um pouco menor que o H1 */
+    }
+}
 
-.main-title {
-    font-size: clamp(32px, 8vw, 120px);
-    font-weight: 700;
-    letter-spacing: clamp(1px, 0.8vw, 8px);
-    line-height: 1;
-    text-transform: uppercase;
-    text-align: center;
-    word-break: break-word;
+/* Ajuste fino para telas grandes */
+@media (min-width: 1024px) {
+    .title-section { --logo-scale: 1; }
 }
 
 /* Artigos */
@@ -290,10 +321,18 @@ article p {
 }
 
 /* Navegação */
+:root {
+    /* tamanho e alinhamento unificados */
+    --edge-gap: clamp(15px, 3vw, 40px);
+    --action-btn-size: clamp(48px, 7vw, 60px);
+    --action-icon-size: clamp(18px, 3vw, 24px);
+}
+
+/* Navegação (alinhada pela mesma borda direita) */
 .navigation {
     position: fixed;
     top: 50%;
-    right: 40px;
+    right: var(--edge-gap);
     transform: translateY(-50%);
     z-index: 1000;
     display: flex;
@@ -302,14 +341,15 @@ article p {
     align-items: center;
 }
 
+/* Botão de navegação (usa variáveis) */
 .nav-btn {
+    width: var(--action-btn-size);
+    height: var(--action-btn-size);
+    font-size: var(--action-icon-size);
     background-color: #2a2a2af6;
     border: 2px solid rgba(255, 255, 255, 0.3);
-    font-size: 24px;
     color: #f8f6f6;
     cursor: pointer;
-    width: 60px;
-    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -321,15 +361,45 @@ article p {
     overflow: visible;
 }
 
-.nav-btn:hover {
-    background-color: #3a3a3af6;
-    border-color: rgba(255, 255, 255, 0.6);
-    transform: scale(1.2) rotate(5deg);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+/* Botão de dark mode (mesmo tamanho, estilo e alinhamento) */
+.dark-mode-btn {
+    position: fixed;
+    top: 20px;
+    right: var(--edge-gap); /* mesma borda direita */
+    width: var(--action-btn-size);
+    height: var(--action-btn-size);
+    padding: 0; /* centraliza o ícone */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #2a2a2af6;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
 }
 
-.nav-btn:active {
-    transform: scale(0.9);
+.dark-mode-btn i {
+    font-size: var(--action-icon-size);
+    color: #f8f6f6;
+    transition: transform 0.3s ease;
+}
+
+/* Remover tamanhos fixos antigos nas media queries e usar as variáveis */
+@media (max-width: 1024px) {
+    .navigation { right: var(--edge-gap); }
+    .nav-btn { width: var(--action-btn-size); height: var(--action-btn-size); font-size: var(--action-icon-size); }
+}
+@media (max-width: 768px) {
+    .navigation { right: var(--edge-gap); }
+    .nav-btn { width: var(--action-btn-size); height: var(--action-btn-size); font-size: var(--action-icon-size); }
+}
+@media (max-width: 480px) {
+    .navigation { right: var(--edge-gap); }
+    .nav-btn { width: var(--action-btn-size); height: var(--action-btn-size); font-size: var(--action-icon-size); }
 }
 
 /* Animação de pulso mais intensa nas setas */
@@ -691,5 +761,91 @@ article p {
         height: 45px;
         font-size: 18px;
     }
+}
+
+/* Ícone sempre central, sem animação própria */
+.nav-btn i {
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+    display: inline-block;
+    line-height: 1;
+}
+
+/* Garante que a seta não anima em nenhum hover */
+.nav-btn:hover i,
+.nav-btn.prev:hover i,
+.nav-btn.next:hover i {
+    animation: none !important;
+    transform: none !important;
+}
+
+/* Botão salta (apenas translateY) e brilha; a seta permanece estática no centro */
+@keyframes bounce-btn {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.nav-btn:hover {
+    background-color: #3a3a3af6;
+    border-color: rgba(255, 255, 255, 0.6);
+    /* sem scale/rotate para não afetar o ícone */
+    transform: none;
+    animation: bounce-btn 0.9s ease-in-out infinite, glow 1s ease-in-out infinite;
+}
+
+/* Remove quaisquer animações direcionais antigas da seta */
+.nav-btn.prev:hover i,
+.nav-btn.next:hover i {
+    animation: none !important;
+    transform: none !important;
+}
+
+/* Opcional: ajuste fino do tamanho da seta para manter legibilidade */
+.nav-btn i {
+    font-size: 1.1em; /* mantém proporcional ao botão */
+}
+
+/* Animação automática só no mobile (sem hover) */
+@media (hover: none), (pointer: coarse) {
+  /* Botão pulsa/bounce sozinho */
+  .nav-btn {
+    animation: mobile-bounce 1.6s ease-in-out infinite, glow 1.6s ease-in-out infinite;
+  }
+
+  /* Mantém a seta estável no centro (sem animações próprias) */
+  .nav-btn i {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  /* Pulso dos anéis um pouco mais lento no mobile */
+  .nav-btn::before,
+  .nav-btn::after {
+    animation-duration: 2s;
+  }
+
+  /* Pausa a animação enquanto o usuário pressiona o botão */
+  .nav-btn:active {
+    transform: translateY(2px) scale(0.96);
+    animation-play-state: paused;
+  }
+
+  @keyframes mobile-bounce {
+    0%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-8px); }
+    60% { transform: translateY(-4px); }
+  }
+}
+
+/* Acessibilidade: reduzir movimento se o usuário preferir */
+@media (prefers-reduced-motion: reduce) {
+  .nav-btn,
+  .nav-btn::before,
+  .nav-btn::after {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
