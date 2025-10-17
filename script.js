@@ -42,27 +42,31 @@ document.addEventListener('keydown', function(event) {
 });
 
 // Inicialização
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     // Garante que a primeira página esteja visível
     showPage(1);
 
     const darkModeToggle = document.getElementById('darkModeToggle');
-    const body = document.body;
+    const darkModeIcon = document.getElementById('darkModeIcon');
+    
+    // Sempre inicia em modo claro
+    document.body.classList.remove('dark-mode');
+    darkModeIcon.classList.remove('fa-sun');
+    darkModeIcon.classList.add('fa-moon');
+    localStorage.removeItem('darkMode');
 
-    // Verifica se já existe uma preferência salva
-    const darkMode = localStorage.getItem('darkMode');
-    if (darkMode === 'enabled') {
-        body.classList.add('dark-mode');
-    }
-
+    // Adiciona o evento de clique
     darkModeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
+        // Toggle da classe dark-mode
+        document.body.classList.toggle('dark-mode');
         
-        // Salva a preferência do usuário
-        if (body.classList.contains('dark-mode')) {
-            localStorage.setItem('darkMode', 'enabled');
+        // Toggle do ícone
+        if (document.body.classList.contains('dark-mode')) {
+            darkModeIcon.classList.remove('fa-moon');
+            darkModeIcon.classList.add('fa-sun');
         } else {
-            localStorage.setItem('darkMode', null);
+            darkModeIcon.classList.remove('fa-sun');
+            darkModeIcon.classList.add('fa-moon');
         }
     });
 });
