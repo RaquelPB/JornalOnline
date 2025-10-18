@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jornal Mundo Dev</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="patoStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -81,7 +82,7 @@
     <!-- Page 2 -->
     <div class="page" id="page2" style="display: none;">
         <header class="page-header">
-            <div class="header-left">Florianópolis, Outubro/25</div>
+            <div class="header-left">Florianópolis, Out/25</div>
             <div class="header-right">NOTÍCIAS</div>
         </header>
 
@@ -125,7 +126,38 @@
         </div>
     </div>
 
+    <div class="scene">
+    <div class="duck-container" id="duck">
+      <!-- Pato moderno em CSS puro -->
+      <div class="modern-duck">
+        <!-- Corpo -->
+        <div class="duck-body"></div>
+        <!-- Cabeça -->
+        <div class="duck-head">
+          <!-- Olhos/Óculos -->
+          <div class="duck-glasses">
+            <div class="glass left"></div>
+            <div class="glass right"></div>
+            <div class="bridge"></div>
+          </div>
+        </div>
+        <!-- Bico -->
+        <div class="duck-beak"></div>
+        <!-- Asa esquerda -->
+        <div class="duck-wing left"></div>
+        <!-- Asa direita -->
+        <div class="duck-wing right"></div>
+        <!-- Pés -->
+        <div class="duck-feet">
+          <div class="foot left"></div>
+          <div class="foot right"></div>
+        </div>
+      </div>
+      <div class="speech" id="speech"></div>
+    </div>
+
     <script src="script.js"></script>
     <script src="animacaoCursor.js"></script>
+    <script src="patoScript.js"></script>
 </body>
 </html>

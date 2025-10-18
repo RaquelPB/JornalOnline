@@ -1,0 +1,501 @@
+.scene {
+  position: fixed; /* mudado de relative para fixed */
+  width: 100vw; /* largura total da viewport */
+  height: 100vh; /* altura total da viewport */
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none; /* permite cliques através da cena */
+  z-index: 9998; /* abaixo do dark-mode-btn */
+}
+
+.duck-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50px; /* posição inicial visível */
+  transition: none; /* remove transição para movimento suave via JS */
+  filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.3));
+  pointer-events: none; /* permite interação com o pato */
+  cursor: pointer;
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+/* Orientação do pato */
+.duck-container.facing-right { transform: scaleX(1); }
+.duck-container.facing-left  { transform: scaleX(-1); }
+
+.speech {
+  position: absolute;
+  top: -100px;
+  left: 90px; /* ajustado para não sair da tela */
+  background: white;
+  border: 3px solid #333;
+  border-radius: 20px;
+  padding: 10px 12px;
+  max-width: 200px;
+  width: max-content;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.speech::after {
+  content: '';
+  position: absolute;
+  bottom: -14px;
+  left: 22px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 14px solid #fff;
+}
+
+.speech::before {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 16px solid #333;
+}
+
+/* Pato Moderno - MENOR */
+.modern-duck {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  animation: duck-float 3s ease-in-out infinite;
+}
+
+@keyframes duck-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Corpo do pato */
+.duck-body {
+  position: absolute;
+  width: 55px;
+  height: 45px;
+  background: linear-gradient(145deg, #FFD700 0%, #FFC107 50%, #FFB300 100%);
+  border-radius: 45% 45% 45% 45% / 60% 60% 40% 40%;
+  bottom: 10px;
+  left: 10px;
+  box-shadow: 
+    inset -5px -5px 15px rgba(0, 0, 0, 0.1),
+    inset 5px 5px 15px rgba(255, 255, 255, 0.3);
+  animation: body-breathe 2s ease-in-out infinite;
+  z-index: 2; /* corpo acima da asa de fundo */
+}
+
+@keyframes body-breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* Cabeça do pato */
+.duck-head {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFC107 100%);
+  border-radius: 50%;
+  top: 5px;
+  right: 10px;
+  box-shadow: 
+    inset -3px -3px 10px rgba(0, 0, 0, 0.1),
+    inset 3px 3px 10px rgba(255, 255, 255, 0.3);
+  z-index: 4; /* acima do bico */
+}
+
+/* Remover óculos */
+.duck-glasses {
+  display: none !important;
+}
+
+/* Olho lateral refinado */
+.duck-head::before {
+  /* Sclera */
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 10px;
+  top: 13px;
+  right: 9px;
+  background:
+    /* sombra da pálpebra em cima */
+    linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,0) 60%),
+    radial-gradient(ellipse at 55% 60%, #ffffff 60%, #f2f2f2 100%);
+  border: 1.6px solid rgba(0,0,0,0.55);
+  border-radius: 60% 85% 75% 60%;
+  transform: rotate(-8deg);
+  box-shadow:
+    0 0.5px 0 rgba(255,255,255,0.7) inset,
+    0 1px 1px rgba(0,0,0,0.15);
+  z-index: 5; /* acima do bico */
+}
+
+.duck-head::after {
+  /* Pupila com brilho */
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  top: 16px;
+  right: 12px;
+  background:
+    radial-gradient(circle at 35% 35%, rgba(255,255,255,.9) 0 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, #0b0b0b 0 60%, #222 61% 100%);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.7) inset,
+    0 0 2px rgba(0,0,0,0.3);
+  z-index: 6;
+}
+
+/* Bico - VIRADO PARA DIREITA */
+.duck-beak {
+  position: absolute;
+  right: -3px; /* era -2px */
+  top: 16px;     /* centraliza verticalmente na cabeça */
+  width: 26px;
+  height: 16px;
+  border: none;  /* reseta o triângulo antigo */
+  z-index: 3; /* atrás dos óculos */
+  filter: drop-shadow(1px 0 2px rgba(0,0,0,0.25));
+  transform-origin: left center;
+  animation: beak-wiggle 4s ease-in-out infinite;
+}
+
+/* Lóbulo superior do bico */
+.duck-beak::before {
+  content: '';
+  position: absolute;
+  left: -4px;  /* encaixe no rosto */
+  top: 0;
+  width: 100%;
+  height: 58%;
+  background: linear-gradient(180deg, #FFA73A 0%, #FF8C00 100%);
+  border: none;
+  border-radius: 6px 12px 8px 6px;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.15);
+}
+
+/* Lóbulo inferior do bico */
+.duck-beak::after {
+  content: '';
+  position: absolute;
+  left: -3px;
+  bottom: 0;
+  width: 92%;
+  height: 55%;
+  background: linear-gradient(180deg, #FF9A1A 0%, #FF7A00 100%);
+  border: none;
+  border-radius: 4px 10px 10px 4px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+}
+
+/* Pequena animação sutil no bico */
+@keyframes beak-wiggle {
+  0%, 90%, 100% { transform: rotate(0deg); }
+  92%, 96%      { transform: rotate(-3deg); }
+  94%, 98%      { transform: rotate(3deg); }
+}
+
+/* Asas */
+.duck-wing {
+  position: absolute;
+  width: 23px;
+  height: 30px;
+  bottom: 20px;
+  box-shadow: 
+    inset -3px -3px 8px rgba(0, 0, 0, 0.15),
+    inset 2px 2px 8px rgba(255, 255, 255, 0.2);
+}
+
+.duck-wing.left {
+  left: 5px;
+  transform: rotate(-25deg);
+  animation: wing-flap-left 2.2s ease-in-out infinite !important;
+  background: linear-gradient(145deg, #E6BE00 100%, #D4AC00 100%);
+  border-radius: 20% 50% 50% 50%;
+  z-index: 3; /* na frente do corpo */
+}
+
+/* Asa DIREITA (ao fundo, menor e com perspectiva) */
+.duck-wing.right {
+  right: 3px;
+  width: 18px;
+  height: 26px;
+  background: linear-gradient(145deg, #E6BE00 100%, #D4AC00 100%);
+  border-radius: 20% 50% 50% 50%;
+  transform: rotate(22deg) skewX(8deg) scaleX(-1) scale(0.9);
+  z-index: 1; /* atrás do corpo */
+  animation: wing-flap-right 2.2s ease-in-out infinite !important;
+}
+
+@keyframes wing-flap-right {
+  0%, 100% { transform: rotate(18deg) scaleX(-1) scale(0.9); }
+  50%      { transform: rotate(26deg) scaleX(-1) scale(0.88); }
+}
+
+@keyframes wing-flap-left {
+  0%, 100% { transform: rotate(-22deg); }
+  50%      { transform: rotate(-32deg); }
+}
+
+/* Caminhando: asa direita (fundo) mexe menos */
+.duck-container.walking .duck-wing.right {
+  animation: wing-flap-walk-right-side 0.35s ease-in-out infinite !important;
+}
+
+@keyframes wing-flap-walk-right-side {
+  0%,100% { transform: rotate(22deg) skewX(8deg) scaleX(-1) scale(0.9); }
+  50%     { transform: rotate(30deg) skewX(10deg) scaleX(-1) scale(0.88); }
+}
+
+/* Asas batem quando está em movimento (classe 'walking') */
+.duck-wing.left,
+.duck-wing.right {
+  animation: none !important; /* parado = sem batimento */
+  transform-origin: 50% 50%;
+}
+
+/* Base (sem pontas) */
+.duck-wing.left { transform: rotate(-22deg); }
+.duck-wing.right { transform: rotate(18deg) scaleX(-1) scale(0.9); }
+
+/* Movendo: batimento rápido e suave */
+.duck-container.walking .duck-wing.left {
+  animation: wing-walk-left 0.28s ease-in-out infinite !important;
+}
+.duck-container.walking .duck-wing.right {
+  animation: wing-walk-right 0.28s ease-in-out infinite !important;
+}
+
+/* Keyframes (apenas rotação para manter asas redondas) */
+@keyframes wing-walk-left {
+  0%,100% { transform: rotate(-22deg); }
+  50%     { transform: rotate(-36deg); }
+}
+@keyframes wing-walk-right {
+  0%,100% { transform: rotate(18deg) scaleX(-1) scale(0.9); }
+  50%     { transform: rotate(30deg) scaleX(-1) scale(0.88); }
+}
+
+/* Pés */
+.duck-feet {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.foot {
+  width: 16px;
+  height: 8px;
+  background: linear-gradient(135deg, #FF6347 0%, #E5533D 100%);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  position: relative;
+  box-shadow: 
+    inset -2px -2px 5px rgba(0, 0, 0, 0.2),
+    0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.foot::before,
+.foot::after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 2px;
+  background: #FF6347;
+  border-radius: 50%;
+  bottom: -1px;
+}
+
+.foot::before {
+  left: -2px;
+  transform: rotate(-30deg);
+}
+
+.foot::after {
+  right: -2px;
+  transform: rotate(30deg);
+}
+
+/* Hover no pato */
+.modern-duck:hover {
+  animation: duck-jump 0.6s ease-in-out;
+}
+
+@keyframes duck-jump {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.modern-duck:hover .duck-wing.left {
+  animation: wing-flap-fast-left 0.3s ease-in-out infinite;
+}
+
+.modern-duck:hover .duck-wing.right {
+  animation: wing-flap-fast-right 0.3s ease-in-out infinite;
+}
+
+@keyframes wing-flap-fast-left {
+  0%, 100% {
+    transform: rotate(-25deg);
+  }
+  50% {
+    transform: rotate(-50deg);
+  }
+}
+
+@keyframes wing-flap-fast-right {
+  0%, 100% {
+    transform: rotate(25deg) scaleX(-1);
+  }
+  50% {
+    transform: rotate(50deg) scaleX(-1);
+  }
+}
+
+/* Reação ao toque: pulo curto e asas mais rápidas */
+.duck-container.react .modern-duck {
+  animation: duck-pop 0.35s ease-out;
+}
+.duck-container.react .duck-wing.left,
+.duck-container.react .duck-wing.right {
+  animation-duration: 0.18s !important; /* acelera momentaneamente */
+}
+
+@keyframes duck-pop {
+  0%   { transform: translateY(0) scale(1); }
+  40%  { transform: translateY(-10px) scale(1.04); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* Ping visual no ponto do toque */
+.tap-ring {
+  position: fixed;
+  width: 26px;
+  height: 26px;
+  border: 3px solid rgba(255,255,255,0.9);
+  border-radius: 50%;
+  left: 0; top: 0;
+  transform: translate(-50%, -50%) scale(0.6);
+  pointer-events: none;
+  z-index: 99999;
+  animation: tap-ring-pop 500ms ease-out forwards;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+@keyframes tap-ring-pop {
+  0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
+  20%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(2.2); }
+}
+
+/* Modo escuro */
+.dark-mode .speech {
+  background: #2a2a2a;
+  color: #ffffff;
+  border-color: #444;
+}
+
+.dark-mode .speech::after {
+  border-top-color: #2a2a2a;
+}
+
+.dark-mode .speech::before {
+  border-top-color: #444;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .modern-duck {
+    transform: scale(0.85);
+  }
+  
+  .speech {
+    max-width: 240px;
+    font-size: 14px;
+    top: -95px;
+    left: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modern-duck {
+    transform: scale(0.7);
+  }
+  
+  .speech {
+    max-width: 200px;
+    font-size: 13px;
+    padding: 10px 12px;
+    top: -80px;
+    left: 70px;
+  }
+}
+
+/* Patinhas: mexem só quando 'walking' */
+.duck-feet { will-change: transform; }
+
+.foot {
+  animation: none;              /* parado = sem animação */
+  transform-origin: 50% 100%;   /* pivô nos calcanhares */
+}
+
+/* Andando: anima patinhas em passo alternado */
+.duck-container.walking .foot,
+#duck.walking .foot {
+  animation: foot-walk 0.28s ease-in-out infinite;
+}
+
+.duck-container.walking .foot.left,
+#duck.walking .foot.left {
+  animation-delay: 0s;
+}
+
+.duck-container.walking .foot.right,
+#duck.walking .foot.right {
+  animation-delay: 0.14s;
+}
+
+/* Keyframes do passo */
+@keyframes foot-walk {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-5px) rotate(-10deg); }
+}
+
+/* Mobile: passo um pouco mais rápido */
+@media (hover: none), (pointer: coarse) {
+  .duck-container.walking .foot,
+  #duck.walking .foot {
+    animation-duration: 0.24s !important;
+  }
+}
