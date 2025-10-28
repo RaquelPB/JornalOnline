@@ -87,6 +87,12 @@ body {
     font-weight: 400;
 }
 
+.date i {
+  margin-right: 6px;
+  color: #555;
+}
+
+
 /* Seção do título principal */
 .title-section {
     display: flex;
@@ -138,7 +144,7 @@ article h3 {
 
 article p {
     text-align: justify;
-    font-size: 15px;
+    font-size: 18px;
     line-height: 1.7;
     margin-bottom: 15px;
 }
@@ -177,12 +183,18 @@ article p {
 }
 
 .image-medium {
+    background-image: url("/assets/crmZummit.webp");
+    background-size: cover;
+    background-position: center;
     height: 350px;
+    border-radius: 5px;    
 }
 
 img {
-    background-size: cover;
-    background-position: center;
+    width: 100%;
+    max-width: 500px;
+    height: auto;  
+    margin: 16px auto;
     height: 300px;
     border-radius: 5px;
 }
@@ -220,7 +232,7 @@ img {
 
 .column p {
     text-align: justify;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.7;
 }
 
@@ -233,7 +245,7 @@ img {
 }
 
 .article-right p {
-    font-size: 14px;
+    font-size: 18px;
     margin-bottom: 20px;
 }
 
@@ -562,9 +574,7 @@ img {
         text-align: left;
     }
 
-    .bottom-article p {
-        font-size: 13px;
-    }
+  
 
     /* Grids */
     .content-grid,
@@ -650,8 +660,7 @@ img {
     article p,
     .column p,
     .article-right p,
-    .bottom-article p {
-        font-size: 13px;
+    .bottom-article p {        
         line-height: 1.5;
     }
 
