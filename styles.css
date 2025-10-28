@@ -175,7 +175,7 @@ article p {
 }
 
 .image-placeholder.image-large {
-    background-image: url("/assets/jovemProgramador.jpg");
+    background-image: url("jovemProgramador.jpg");
     background-size: cover;
     background-position: center;
     height: 400px;
@@ -183,7 +183,7 @@ article p {
 }
 
 .image-medium {
-    background-image: url("/assets/crmZummit.webp");
+    background-image: url("crmZummit.webp");
     background-size: cover;
     background-position: center;
     height: 350px;
@@ -219,8 +219,8 @@ img {
 }
 
 .article-layout {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+    display: grid;    
+    grid-template-columns: 1fr;
     gap: 40px;
 }
 
@@ -492,10 +492,6 @@ img {
     .content-grid-3 {
         grid-template-columns: 1fr;
         gap: 30px;
-    }
-
-    .article-layout {
-        grid-template-columns: 1fr;
     }
 
     .article-columns {
