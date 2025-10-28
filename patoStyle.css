@@ -72,8 +72,8 @@
 /* Pato Moderno - MENOR */
 .modern-duck {
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 50px; /* reduzido de 80px */
+  height: 50px; /* reduzido de 80px */
   animation: duck-float 3s ease-in-out infinite;
 }
 
@@ -89,15 +89,15 @@
 /* Corpo do pato */
 .duck-body {
   position: absolute;
-  width: 55px;
-  height: 45px;
+  width: 35px; /* reduzido de 55px */
+  height: 28px; /* reduzido de 45px */
   background: linear-gradient(145deg, #FFD700 0%, #FFC107 50%, #FFB300 100%);
   border-radius: 45% 45% 45% 45% / 60% 60% 40% 40%;
-  bottom: 10px;
-  left: 10px;
+  bottom: 6px; /* ajustado de 10px */
+  left: 6px; /* ajustado de 10px */
   box-shadow: 
-    inset -5px -5px 15px rgba(0, 0, 0, 0.1),
-    inset 5px 5px 15px rgba(255, 255, 255, 0.3);
+    inset -3px -3px 10px rgba(0, 0, 0, 0.1),
+    inset 3px 3px 10px rgba(255, 255, 255, 0.3);
   animation: body-breathe 2s ease-in-out infinite;
   z-index: 2; /* corpo acima da asa de fundo */
 }
@@ -114,15 +114,15 @@
 /* Cabeça do pato */
 .duck-head {
   position: absolute;
-  width: 35px;
-  height: 35px;
+  width: 22px; /* reduzido de 35px */
+  height: 22px; /* reduzido de 35px */
   background: linear-gradient(135deg, #FFD700 0%, #FFC107 100%);
   border-radius: 50%;
-  top: 5px;
-  right: 10px;
+  top: 3px; /* ajustado de 5px */
+  right: 6px; /* ajustado de 10px */
   box-shadow: 
-    inset -3px -3px 10px rgba(0, 0, 0, 0.1),
-    inset 3px 3px 10px rgba(255, 255, 255, 0.3);
+    inset -2px -2px 6px rgba(0, 0, 0, 0.1),
+    inset 2px 2px 6px rgba(255, 255, 255, 0.3);
   z-index: 4; /* acima do bico */
 }
 
@@ -136,20 +136,20 @@
   /* Sclera */
   content: "";
   position: absolute;
-  width: 14px;
-  height: 10px;
-  top: 13px;
-  right: 9px;
+  width: 9px; /* reduzido de 14px */
+  height: 6px; /* reduzido de 10px */
+  top: 8px; /* ajustado de 13px */
+  right: 6px; /* ajustado de 9px */
   background:
     /* sombra da pálpebra em cima */
     linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,0) 60%),
     radial-gradient(ellipse at 55% 60%, #ffffff 60%, #f2f2f2 100%);
-  border: 1.6px solid rgba(0,0,0,0.55);
+  border: 1px solid rgba(0,0,0,0.55); /* reduzido de 1.6px */
   border-radius: 60% 85% 75% 60%;
   transform: rotate(-8deg);
   box-shadow:
-    0 0.5px 0 rgba(255,255,255,0.7) inset,
-    0 1px 1px rgba(0,0,0,0.15);
+    0 0.3px 0 rgba(255,255,255,0.7) inset,
+    0 0.5px 0.5px rgba(0,0,0,0.15);
   z-index: 5; /* acima do bico */
 }
 
@@ -157,27 +157,27 @@
   /* Pupila com brilho */
   content: "";
   position: absolute;
-  width: 6px;
-  height: 6px;
-  top: 16px;
-  right: 12px;
+  width: 4px; /* reduzido de 6px */
+  height: 4px; /* reduzido de 6px */
+  top: 10px; /* ajustado de 16px */
+  right: 8px; /* ajustado de 12px */
   background:
     radial-gradient(circle at 35% 35%, rgba(255,255,255,.9) 0 1px, transparent 1px),
     radial-gradient(circle at 50% 50%, #0b0b0b 0 60%, #222 61% 100%);
   border-radius: 50%;
   box-shadow:
-    0 0 0 1px rgba(0,0,0,0.7) inset,
-    0 0 2px rgba(0,0,0,0.3);
+    0 0 0 0.5px rgba(0,0,0,0.7) inset,
+    0 0 1px rgba(0,0,0,0.3);
   z-index: 6;
 }
 
 /* Bico - VIRADO PARA DIREITA */
 .duck-beak {
   position: absolute;
-  right: -3px; /* era -2px */
-  top: 16px;     /* centraliza verticalmente na cabeça */
-  width: 26px;
-  height: 16px;
+  right: -2px; /* ajustado de -3px */
+  top: 10px; /* ajustado de 16px */
+  width: 16px; /* reduzido de 26px */
+  height: 10px; /* reduzido de 16px */
   border: none;  /* reseta o triângulo antigo */
   z-index: 3; /* atrás dos óculos */
   filter: drop-shadow(1px 0 2px rgba(0,0,0,0.25));
@@ -223,16 +223,16 @@
 /* Asas */
 .duck-wing {
   position: absolute;
-  width: 23px;
-  height: 30px;
-  bottom: 20px;
+  width: 15px; /* reduzido de 23px */
+  height: 19px; /* reduzido de 30px */
+  bottom: 12px; /* ajustado de 20px */
   box-shadow: 
-    inset -3px -3px 8px rgba(0, 0, 0, 0.15),
-    inset 2px 2px 8px rgba(255, 255, 255, 0.2);
+    inset -2px -2px 5px rgba(0, 0, 0, 0.15),
+    inset 1px 1px 5px rgba(255, 255, 255, 0.2);
 }
 
 .duck-wing.left {
-  left: 5px;
+  left: 3px; /* ajustado de 5px */
   transform: rotate(-25deg);
   animation: wing-flap-left 2.2s ease-in-out infinite !important;
   background: linear-gradient(145deg, #E6BE00 100%, #D4AC00 100%);
@@ -242,9 +242,9 @@
 
 /* Asa DIREITA (ao fundo, menor e com perspectiva) */
 .duck-wing.right {
-  right: 3px;
-  width: 18px;
-  height: 26px;
+  right: 2px; /* ajustado de 3px */
+  width: 12px; /* reduzido de 18px */
+  height: 16px; /* reduzido de 26px */
   background: linear-gradient(145deg, #E6BE00 100%, #D4AC00 100%);
   border-radius: 20% 50% 50% 50%;
   transform: rotate(22deg) skewX(8deg) scaleX(-1) scale(0.9);
@@ -308,18 +308,18 @@
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 10px;
+  gap: 6px; /* reduzido de 10px */
 }
 
 .foot {
-  width: 16px;
-  height: 8px;
+  width: 10px; /* reduzido de 16px */
+  height: 5px; /* reduzido de 8px */
   background: linear-gradient(135deg, #FF6347 0%, #E5533D 100%);
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
   position: relative;
   box-shadow: 
-    inset -2px -2px 5px rgba(0, 0, 0, 0.2),
-    0 2px 5px rgba(0, 0, 0, 0.3);
+    inset -1px -1px 3px rgba(0, 0, 0, 0.2),
+    0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .foot::before,
@@ -437,28 +437,28 @@
 /* Responsividade */
 @media (max-width: 768px) {
   .modern-duck {
-    transform: scale(0.85);
+    transform: scale(0.6); /* bem menor em tablet */
   }
   
   .speech {
-    max-width: 240px;
-    font-size: 14px;
-    top: -95px;
-    left: 80px;
+    max-width: 200px;
+    font-size: 12px;
+    top: -70px;
+    left: 50px;
   }
 }
 
 @media (max-width: 480px) {
   .modern-duck {
-    transform: scale(0.7);
+    transform: scale(0.5); /* muito menor em mobile */
   }
   
   .speech {
-    max-width: 200px;
-    font-size: 13px;
-    padding: 10px 12px;
-    top: -80px;
-    left: 70px;
+    max-width: 160px;
+    font-size: 11px;
+    padding: 6px 8px;
+    top: -60px;
+    left: 40px;
   }
 }
 
