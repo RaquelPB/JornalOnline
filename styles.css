@@ -175,7 +175,7 @@ article p {
 }
 
 .image-placeholder.image-large {
-    background-image: url("jovemProgramador.jpg");
+    background-image: url("/jovemProgramador.jpg");
     background-size: cover;
     background-position: center;
     height: 400px;
@@ -183,7 +183,7 @@ article p {
 }
 
 .image-medium {
-    background-image: url("crmZummit.webp");
+    background-image: url("/crmZummit.webp");
     background-size: cover;
     background-position: center;
     height: 350px;
