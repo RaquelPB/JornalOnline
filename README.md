@@ -31,7 +31,7 @@ newspaper-website/
 ## 🎨 Características do Design
 
 ### Página 1
-- Título principal "NEWSPAPER" em destaque
+- Título principal "Mundo DEV" em destaque
 - Artigo principal com imagem
 - Artigo secundário com imagem
 - Três colunas de artigos menores na parte inferior
