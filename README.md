@@ -69,13 +69,13 @@ O site é totalmente responsivo e se adapta a diferentes tamanhos de tela:
 ### Opção 2: Servidor Local
 ```bash
 # Com Python 3
-python3 -m http.server 8000
+python3 -m http.server 5500
 
 # Com Node.js (http-server)
 npx http-server
 ```
 
-Depois acesse `http://localhost:8000` no navegador.
+Depois acesse `http://localhost:5500` no navegador.
 
 ## 📤 Deploy
 
@@ -95,7 +95,13 @@ Este projeto pode ser facilmente hospedado em:
 
 ## 👨‍💻 Desenvolvimento
 
-Projeto desenvolvido como trabalho individual para a disciplina de Front-End, conforme requisitos da **AVALIAÇÃO FINAL - UC1 & UC2**.
+Projeto desenvolvido por:
+- Leiliane Costa
+- Raquel Pereira
+- Gabriella Garcia
+- Natashia Romanzini
+
+Para a disciplina de Front-End do Jovem Programador do Senac, conforme requisitos da **AVALIAÇÃO FINAL - UC1 & UC2**.
 
 **Data de conclusão**: 29 de outubro de 2025 às 21:30
 
