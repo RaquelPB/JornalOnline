@@ -1,4 +1,4 @@
-# Newspaper Website - Avaliação UC2 Front-End
+# Mundo DEV - Newspaper Website - Avaliação UC2 Front-End
 
 Este projeto é uma página web estilo jornal desenvolvida como parte da **AVALIAÇÃO UC2 FRONT-END**. O site apresenta um layout responsivo que simula um jornal impresso tradicional, com duas páginas navegáveis.
 
