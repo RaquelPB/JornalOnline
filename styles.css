@@ -123,6 +123,7 @@ article h2 {
     font-size: 32px;
     font-weight: 600;
     line-height: 1.3;
+    margin-top: 0;
     margin-bottom: 10px;
     text-transform: uppercase;
 }
@@ -131,6 +132,7 @@ article h3 {
     font-size: 18px;
     font-weight: 600;
     line-height: 1.3;
+    margin-top: 0;
     margin-bottom: 10px;
     text-transform: uppercase;
 }
@@ -159,6 +161,7 @@ article p {
     margin-bottom: 40px;
     padding-bottom: 40px;
     border-bottom: 2px solid #333;
+    align-items: stretch;
 }
 
 .article-main {
@@ -199,6 +202,79 @@ img {
     border-radius: 5px;
 }
 
+/* Estilos para vídeos */
+video {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Placeholder para vídeos na página 2 */
+.video-placeholder {
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.video-placeholder video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Placeholder para imagem da receita */
+.image-placeholder.image-receita {
+    background-color: #d3d3d3;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.image-placeholder.image-receita img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+}
+
+/* Vídeos na seção bottom */
+.bottom-article video {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 15px auto 0;
+    display: block;
+}
+
+/* Artigos da bottom section com mesmo tamanho no desktop */
+@media (min-width: 768px) {
+    .bottom-section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        align-items: start;
+    }
+    
+    .bottom-article {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .bottom-article .article-content {
+        flex-grow: 1;
+    }
+}
+
 /* Seção inferior */
 .bottom-section {
     display: grid;
@@ -211,12 +287,7 @@ img {
     font-size: 14px;
 }
 
-/* Página 2 - Layout específico */
-.article-featured {
-    margin-bottom: 40px;
-    padding-bottom: 40px;
-    border-bottom: 2px solid #333;
-}
+
 
 .article-layout {
     display: grid;    
@@ -710,6 +781,56 @@ img {
         40% { transform: translateY(-8px); }
         60% { transform: translateY(-4px); }
     }
+}
+
+/* Regras específicas para mobile */
+@media (max-width: 768px) {
+    video {
+        max-width: 100%;
+        margin: 12px auto;
+    }
+    
+    /* Ajustar video placeholder em mobile */
+    .video-placeholder {
+        height: 250px;
+    }
+    
+    /* Ajustar imagem da receita em mobile */
+    .image-placeholder.image-receita {
+        height: auto;
+        min-height: 250px;
+    }
+    
+    /* Seção de filmes em mobile */
+    .films-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .film-article video {
+        max-width: 100%;
+        margin: 10px auto 0;
+    }
+    
+    /* Vídeos na seção bottom em mobile */
+    .bottom-article video {
+        max-width: 100%;
+        margin: 10px auto 0;
+    }
+    
+    /* Em mobile, voltar ao layout vertical para vídeos */
+    .article-featured:has(video) {
+        display: block;
+    }
+    
+    .article-featured:has(video) video {
+        grid-column: unset;
+        grid-row: unset;
+        margin: 16px auto;
+        display: block;
+    }
+    
+
 }
 
 /* Reduzir animações para acessibilidade */
