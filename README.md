@@ -1,4 +1,5 @@
-# 📰 Mundo DEV — Jornal Web Responsivo - Avaliação UC2 Front-End
+# 📰 Mundo DEV - Jornal Web Responsivo
+## Avaliação UC2 Front-End
 
 Mundo DEV é um site estilo jornal digital, desenvolvido como parte da **Avaliação Final das Unidades Curriculares UC1 e UC2 - Front-End**, do curso *Jovem Programador Senac*. A proposta simula um jornal impresso clássico, com visual elegante e navegação entre duas páginas.
 
