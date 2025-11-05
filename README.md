@@ -1,6 +1,8 @@
-# Mundo DEV - Newspaper Website - Avaliação UC2 Front-End
+# 📰 Mundo DEV - Jornal Web Responsivo
+## Avaliação UC2 Front-End
 
-Este projeto é uma página web estilo jornal desenvolvida como parte da **AVALIAÇÃO UC2 FRONT-END**. O site apresenta um layout responsivo que simula um jornal impresso tradicional, com duas páginas navegáveis.
+Mundo DEV é um site estilo jornal digital, desenvolvido como parte da **Avaliação Final das Unidades Curriculares UC1 e UC2 - Front-End**, do curso *Jovem Programador Senac*. A proposta simula um jornal impresso clássico, com visual elegante e navegação entre duas páginas.
+
 
 ## 📋 Descrição do Projeto
 
@@ -12,59 +14,68 @@ O projeto consiste em uma página web (somente Front-end) que replica o design d
 - Design totalmente responsivo
 - Navegação por botões e teclado
 
+
 ## 🚀 Tecnologias Utilizadas
 
 - **HTML5**: Estrutura semântica da página
 - **CSS3**: Estilização e layout responsivo (Grid Layout)
 - **JavaScript**: Navegação entre páginas e interatividade
 
+
 ## 📁 Estrutura de Arquivos
 
 ```
-newspaper-website/
-├── index.html      # Estrutura HTML principal
-├── styles.css      # Estilos e layout
-├── script.js       # Funcionalidades JavaScript
-└── README.md       # Documentação do projeto
+mundo-dev/
+├── index.html             # Página principal do jornal
+├── styles.css             # Estilos gerais
+├── patoStyle.css          # Estilo do pato animado (página 2)
+├── script.js              # Scripts de navegação
+├── animacaoCursor.js      # Animação de digitação no título
+├── patoScript.js          # Script da animação do pato
+├── assets/                # Imagens, ícones e vídeos
+└── README.md              # Documentação do projeto
 ```
 
-## 🎨 Características do Design
 
-### Página 1
-- Título principal "Mundo DEV" em destaque
-- Artigo principal com imagem
+## 🎨 Destaques de Design
+
+### Página 1 — Notícias
+- Logotipo e título principal animado “MUNDO DEV”
+- Artigo de destaque com imagem grande
 - Artigo secundário com imagem
-- Três colunas de artigos menores na parte inferior
+- Sessão de eventos e resumos em colunas
 
-### Página 2
-- Artigo em destaque com layout de duas colunas
-- Imagem lateral
-- Seção com imagem grande e texto
-- Artigo final
+### Página 2 — Variedades
+- Seções: Horóscopo DEV, Receita de café, Filmes temáticos
+- Layout dinâmico com grid e imagens
+- Elemento animado (pato tech) com balão de fala
+
 
 ## 🖱️ Navegação
 
 ### Por Botões
-- Botão **→** (seta direita): Avança para a próxima página
-- Botão **←** (seta esquerda): Retorna para a página anterior
+- Botão **→** (seta direita): Próxima página
+- Botão **←** (seta esquerda): Página anterior
 
 ### Por Teclado
 - **Seta Direita** ou **Espaço**: Próxima página
 - **Seta Esquerda**: Página anterior
 
+
 ## 📱 Responsividade
 
-O site é totalmente responsivo e se adapta a diferentes tamanhos de tela:
+A interface se adapta a todos os tamanhos de tela:
 
-- **Desktop** (>1024px): Layout completo com múltiplas colunas
-- **Tablet** (768px - 1024px): Layout adaptado com colunas reduzidas
-- **Mobile** (<768px): Layout em coluna única para melhor legibilidade
+- **Desktop** (>1024px): layout em colunas múltiplas
+- **Tablet** (768px - 1024px): colunas adaptadas
+- **Mobile** (<768px): layout em coluna única, com imagens e texto otimizados
+
 
 ## 🔧 Como Usar
 
 ### Opção 1: Abrir Localmente
-1. Faça o download de todos os arquivos
-2. Abra o arquivo `index.html` em qualquer navegador moderno
+1. Baixe todos os arquivos
+2. Abra `index.html` em seu navegador preferido
 
 ### Opção 2: Servidor Local
 ```bash
@@ -75,7 +86,8 @@ python3 -m http.server 5500
 npx http-server
 ```
 
-Depois acesse `http://localhost:5500` no navegador.
+Acesse `http://localhost:5500` no navegador.
+
 
 ## 📤 Deploy
 
@@ -86,26 +98,29 @@ Este projeto pode ser facilmente hospedado em:
 - **Vercel**: Conecte o repositório GitHub ao Vercel
 - Qualquer servidor web estático
 
-## 📝 Observações
 
-- O conteúdo utiliza texto "Lorem Ipsum" como placeholder
-- As imagens são representadas por placeholders cinzas
+## 🧪 Considerações
+
+- Algumas imagens e conteúdos são fictícios ou ilustrativos
+- Todo o código é comentado e acessível para fins didáticos
+- Desenvolvido sem frameworks (apenas HTML, CSS e JS puros)
 - O projeto foi desenvolvido seguindo as especificações da avaliação
-- Todo o código é acessível e bem comentado
+
 
 ## 👨‍💻 Desenvolvimento
 
 Projeto desenvolvido por:
-- Leiliane Costa
-- Raquel Pereira
-- Gabriella Garcia
-- Natashia Romanzini
+- **Leiliane Costa** • https://github.com/leilianelcs
+- **Raquel Pereira** • https://github.com/raquelpb
+- **Gabriella Garcia** • https://github.com/Grcgabi07
+- **Natashia Romanzini** • https://github.com/natashiaromanzini
 
-Para a disciplina de Front-End do Jovem Programador do Senac, conforme requisitos da **AVALIAÇÃO FINAL - UC1 & UC2**.
+Para a disciplina de Front-End do *Jovem Programador do Senac*, conforme requisitos da **AVALIAÇÃO FINAL - UC1 & UC2**.
 
-**Data de conclusão**: 29 de outubro de 2025 às 21:30
+## 📅 Conclusão: 29 de outubro de 2025
 
 ---
+## ✅ Licença
 
-**Nota**: Este é um projeto acadêmico desenvolvido exclusivamente com HTML, CSS e JavaScript vanilla, sem frameworks ou bibliotecas externas.
-
+Projeto acadêmico, livre para fins de estudo e demonstração.
+Orientado por **Regina Gravina**
